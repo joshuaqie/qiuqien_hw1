@@ -158,7 +158,7 @@ double det_matrix(Matrix a)
                             c.data[j][k] = a.data[j + 1][k];
                     }
                 }
-                num = num +((2+i)%2 ? -1 :1)* det_matrix(c) * a.data[0][i];
+                num = num + ((2 + i) % 2 ? -1 : 1) * det_matrix(c) * a.data[0][i];
             }
             return num;
         }
@@ -207,7 +207,7 @@ Matrix inv_matrix(Matrix a)
                             c.data[k][n] = a.data[k][n];
                     }
                 }
-                d.data[i][j] = pow(-1, i + j + 2) * det_matrix(c);
+                d.data[i][j] = ((i + j + 2) % 2 ? -1 : 1) * det_matrix(c);
             }
         }
         for (i = 0; i < e.rows; i++)
@@ -234,12 +234,12 @@ Matrix inv_matrix(Matrix a)
 int rank_matrix(Matrix a)
 {
     // ToDo
-    int i, j, rank, k, temp,n;
+    int i, j, rank, k, temp, n;
     if (a.rows <= a.cols)
         rank = a.rows;
     else
         rank = a.cols;
-    n=rank;
+    n = rank;
     for (i = 0; i < n; i++)
     {
         if (a.data[i][i] == 0)
