@@ -158,7 +158,7 @@ double det_matrix(Matrix a)
                             c.data[j][k] = a.data[j + 1][k];
                     }
                 }
-                num = num + pow(-1, 2 + i) * det_matrix(c) * a.data[0][i];
+                num = num +((2+i)%2 ? -1 :1)* det_matrix(c) * a.data[0][i];
             }
             return num;
         }
