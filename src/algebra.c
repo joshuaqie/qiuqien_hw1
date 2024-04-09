@@ -269,7 +269,7 @@ int rank_matrix(Matrix a)
             {
                 for (k = 0; k < a.cols; k++)
                 {
-                    a.data[j][k] = a.data[j][k] - a.data[j][i] / a.data[i][i] * a.data[i][k];
+                    a.data[j][k] = a.data[j][k] - a.data[j][i] * a.data[i][k]/ a.data[i][i];
                 }
             }
         }
