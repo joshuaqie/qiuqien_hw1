@@ -175,7 +175,7 @@ double det_matrix(Matrix a)
     }
     else
     {
-        printf("Error:atrix must be a square matrix.\n");
+        printf("Error: The matrix must be a square matrix.\n");
         return 0;
     }
 }
@@ -292,7 +292,7 @@ double trace_matrix(Matrix a)
     }
     else
     {
-        printf("Error:atrix must be a square matrix.\n");
+        printf("Error: The matrix must be a square matrix.\n");
         return 0;
     }
 }
