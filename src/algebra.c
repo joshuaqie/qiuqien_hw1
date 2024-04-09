@@ -139,7 +139,7 @@ double det_matrix(Matrix a)
     int i, j, n, k;
     double num = 0;
     Matrix c;
-    if (a.rows == a.cols&&a.rows>0&&a.cols>0)
+    if (a.rows == a.cols && a.rows > 0 && a.cols > 0)
     {
         n = a.rows;
         if (n > 2)
@@ -240,42 +240,43 @@ int rank_matrix(Matrix a)
     else
         rank = a.cols;
     n = rank;
-    if(a.rows>0&&a.cols>0)
-    {for (i = 0; i < n; i++)
+    if (a.rows > 0 && a.cols > 0)
     {
-        if (a.data[i][i] == 0)
+        for (i = 0; i < n; i++)
         {
-            for (j = i + 1; j < a.rows; j++)
+            if (a.data[i][i] == 0)
             {
-                if (a.data[j][i] != 0)
+                for (j = i + 1; j < a.rows; j++)
                 {
-                    for (k = 0; k < a.cols; k++)
+                    if (a.data[j][i] != 0)
                     {
-                        temp = a.data[i][k];
-                        a.data[i][k] = a.data[j][k];
-                        a.data[j][k] = temp;
+                        for (k = 0; k < a.cols; k++)
+                        {
+                            temp = a.data[i][k];
+                            a.data[i][k] = a.data[j][k];
+                            a.data[j][k] = temp;
+                        }
+                        break;
                     }
-                    break;
+                }
+                if (j == a.rows)
+                {
+                    rank = rank - 1;
+                    continue;
                 }
             }
-            if (j == a.rows)
+            for (j = i + 1; j < a.rows; j++)
             {
-                rank = rank - 1;
-                continue;
+                for (k = 0; k < a.cols; k++)
+                {
+                    a.data[j][k] = a.data[j][k] - a.data[j][i] / a.data[i][i] * a.data[i][k];
+                }
             }
         }
-        for (j = i + 1; j < a.rows; j++)
-        {
-            for (k = 0; k < a.cols; k++)
-            {
-                a.data[j][k] = a.data[j][k] - a.data[j][k] / a.data[i][k] * a.data[i][k];
-            }
-        }
-    }
-    return rank;
+        return rank;
     }
     else
-    return 0;
+        return 0;
 }
 
 double trace_matrix(Matrix a)
@@ -283,7 +284,7 @@ double trace_matrix(Matrix a)
     // ToDo
     double num = 0;
     int i;
-    if (a.rows == a.cols&&a.rows>0&&a.cols>0)
+    if (a.rows == a.cols && a.rows > 0 && a.cols > 0)
     {
         for (i = 0; i < a.rows; i++)
             num = num + a.data[i][i];
