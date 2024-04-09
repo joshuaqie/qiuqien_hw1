@@ -139,7 +139,7 @@ double det_matrix(Matrix a)
     int i, j, n, k;
     double num = 0;
     Matrix c;
-    if (a.rows == a.cols)
+    if (a.rows == a.cols&&a.rows>0&&a.cols>0)
     {
         n = a.rows;
         if (n > 2)
@@ -240,7 +240,8 @@ int rank_matrix(Matrix a)
     else
         rank = a.cols;
     n = rank;
-    for (i = 0; i < n; i++)
+    if(a.rows>0&&a.cols>0)
+    {for (i = 0; i < n; i++)
     {
         if (a.data[i][i] == 0)
         {
@@ -272,6 +273,8 @@ int rank_matrix(Matrix a)
         }
     }
     return rank;
+    }
+    else
     return 0;
 }
 
@@ -280,7 +283,7 @@ double trace_matrix(Matrix a)
     // ToDo
     double num = 0;
     int i;
-    if (a.rows == a.cols)
+    if (a.rows == a.cols&&a.rows>0&&a.cols>0)
     {
         for (i = 0; i < a.rows; i++)
             num = num + a.data[i][i];
