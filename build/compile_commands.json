@@ -1,0 +1,14 @@
+[
+{
+  "directory": "H:/work/qiuqien_hw1/build",
+  "command": "H:\\mingw64\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -o CMakeFiles\\main.dir\\src\\algebra.obj -c H:\\work\\qiuqien_hw1\\src\\algebra.c",
+  "file": "H:/work/qiuqien_hw1/src/algebra.c",
+  "output": "CMakeFiles/main.dir/src/algebra.obj"
+},
+{
+  "directory": "H:/work/qiuqien_hw1/build",
+  "command": "H:\\mingw64\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -o CMakeFiles\\main.dir\\src\\main.obj -c H:\\work\\qiuqien_hw1\\src\\main.c",
+  "file": "H:/work/qiuqien_hw1/src/main.c",
+  "output": "CMakeFiles/main.dir/src/main.obj"
+}
+]
